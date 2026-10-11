@@ -1,0 +1,9 @@
+CREATE TABLE questions (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    question VARCHAR(255) NOT NULL,
+    answer_a VARCHAR(255) NOT NULL,
+    answer_b VARCHAR(255) NOT NULL,
+    results_a INT UNSIGNED NOT NULL DEFAULT 0,
+    results_b INT UNSIGNED NOT NULL DEFAULT 0
+);
