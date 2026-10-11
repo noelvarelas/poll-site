@@ -1,7 +1,7 @@
 <?php
 
 // db.php has the connection info php uses to talk to mariadb
-require __DIR__ . '/db.php';
+require __DIR__ . '/../includes/db.php';
 
 $date = date('Y-m-d');
 
@@ -39,7 +39,7 @@ function txt($string) {
       <p>There is no question today :(</p>
     <?php elseif (! $voted): ?>
       <p><?= txt($row['question']) ?></p>
-      <form method="post" action="vote.php">
+      <form method="post" action="./vote.php">
         <input type="hidden" name="id" value="<?= $row['id'] ?>">
         <button type="submit" name="answer" value="answer_a">
           <?= txt($row['answer_a']) ?>

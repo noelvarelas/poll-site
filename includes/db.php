@@ -4,8 +4,8 @@
 date_default_timezone_set('America/Phoenix');
 
 // mariadb credentials
-$dsn = 'mysql:host=localhost;dbname=website;charset=utf8mb4';
-$db_user = 'noel';
+$dsn = 'mysql:host=localhost;dbname=poll_site;charset=utf8mb4';
+$db_user = 'poll_site';
 $db_password = 'almalinuxapachemariadbphp';
 
 // establish php connection to mariadb
