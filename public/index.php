@@ -1,7 +1,7 @@
 <?php
 
 // db.php has the connection info php uses to talk to mariadb
-require __DIR__ . '/../includes/db.php';
+require __DIR__ . '/../private/db.php';
 
 $date = date('Y-m-d');
 

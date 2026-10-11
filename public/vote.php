@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../includes/db.php';
+require __DIR__ . '/../private/db.php';
 
 // get question id and answer from buttons
 $id = $_POST['id'] ?? '';
