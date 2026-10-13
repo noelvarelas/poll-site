@@ -1,6 +1,6 @@
 CREATE TABLE questions (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    date DATE NOT NULL,
+    date DATE UNIQUE NOT NULL,
     question VARCHAR(255) NOT NULL,
     answer_a VARCHAR(255) NOT NULL,
     answer_b VARCHAR(255) NOT NULL,
