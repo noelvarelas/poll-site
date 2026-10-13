@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dbuser="poll_site"
+dbuser="poll_admin"
 dbpass="almalinuxapachemariadbphp"
 
 echo; echo "Five most recent entries:"; echo

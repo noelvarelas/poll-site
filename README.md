@@ -2,7 +2,8 @@
 A poll site where every visitor gets asked the same controversial question once per day.
 
 # Server Setup
-Detailed instructions to come. Designed with AlmaLinux, Apache (httpd), MariaDB, and PHP in mind. The web root is `/var/www/poll_site/public`
+Designed with AlmaLinux, Apache (httpd), MariaDB, and PHP in mind.
+There is a [script](https://github.com/noelvarelas/poll-site/blob/main/setup/almalinux-setup.sh) that automates the setup process.
 
 # Features to work on
 - Display results of previous day on the main page
