@@ -11,4 +11,4 @@ There is a [setup script](https://github.com/noelvarelas/poll-site/blob/main/set
 - Suggestions box that appends one line to a private text file on the server
 
 # Things to fix
-- Put the database connection credentials in a git-ignored config file, then make a public config example file
+- 
