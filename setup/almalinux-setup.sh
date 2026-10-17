@@ -1,6 +1,5 @@
 #!/bin/bash
 
-DB_PASS=''
 REPO_HTTPS="https://github.com/noelvarelas/poll-site.git"
 REPO_SSH="git@github.com:noelvarelas/poll-site.git"
 WEBROOT="/var/www/poll-site"
@@ -60,17 +59,19 @@ if ! mariadb -u root -Nse "SELECT 1 FROM mysql.user \
   WHERE User='poll_site' AND Host='localhost';" \
   | grep -q 1; then
 
-  echo "Enter a password (only letters and numbers) for the poll_site database:"
+  echo; echo "Enter a password for the poll_site database:"
+  echo "(use only letters and numbers, will not be visible as you type)"
   read -rs DB_PASS; echo
-  echo "Enter it again:"
+  echo "Enter password again to confirm:"
   read -rs DB_PASS_CHECK; echo
   if [[ "$DB_PASS" != "$DB_PASS_CHECK" ]]; then
-    echo "Passwords do not match."
+    echo "Passwords do not match. Please re-run script."
     exit 1
-  fi
-  if [[ ! "$DB_PASS" =~ ^[A-Za-z0-9]+$ ]]; then
-    echo "Password must contain only letters and numbers."
+  elif [[ ! "$DB_PASS" =~ ^[A-Za-z0-9]+$ ]]; then
+    echo "Password must contain only letters and numbers. Please re-run script."
     exit 1
+  else
+    echo "Password accepted!"
   fi
   
   mariadb -u root -e "CREATE USER 'poll_site'@'localhost' \
