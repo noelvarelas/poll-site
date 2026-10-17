@@ -38,10 +38,6 @@ mariadb -u root -e "CREATE USER IF NOT EXISTS 'poll_site'@'localhost' \
   IDENTIFIED BY 'almalinuxapachemariadbphp';"
 mariadb -u root -e "GRANT SELECT, UPDATE ON poll_site.questions \
   TO 'poll_site'@'localhost';"
-mariadb -u root -e "CREATE USER IF NOT EXISTS 'poll_admin'@'localhost' \
-  IDENTIFIED BY 'almalinuxapachemariadbphp';"
-mariadb -u root -e "GRANT SELECT, INSERT, UPDATE, DELETE ON poll_site.questions \
-  TO 'poll_admin'@'localhost'"
 
 echo; echo "4/5 Setting up site directory..."
 if [[ ! -d "$WEBROOT" ]]; then
