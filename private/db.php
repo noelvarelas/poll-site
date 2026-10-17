@@ -1,7 +1,7 @@
 <?php
 
 // mariadb credentials in separate file
-require_once __DIR__ . '/db-creds.php';
+require_once __DIR__ . '/db-credentials.php';
 
 // timezone set here since all pages require db.php
 date_default_timezone_set('America/Phoenix');
