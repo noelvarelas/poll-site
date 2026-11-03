@@ -3,13 +3,25 @@
 // db.php has the connection info php uses to talk to mariadb
 require __DIR__ . '/../private/db.php';
 
-$date = date('Y-m-d');
+$today = date('Y-m-d');
+$yesterday = date('Y-m-d', strtotime('-1 day'));
 
 // $stmt dumps the question info into php using the date
-// $row extracts the data we want
-$stmt = $pdo->prepare("SELECT * FROM questions WHERE date = ?");
-$stmt->execute([$date]);
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
+// $rows extracts the data we want
+$stmt = $pdo->prepare("SELECT * FROM questions WHERE date IN (?, ?)");
+$stmt->execute([$today, $yesterday]);
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// separate today's question from yesterday's question
+$todayRow = null;
+$yesterdayRow = null;
+foreach ($rows as $row) {
+  if ($row['date'] === $today) {
+    $todayRow = $row;
+  } elseif ($row['date'] === $yesterday) {
+    $yesterdayRow = $row;
+  }
+}
 
 // check if the user has a cookie for having voted already
 // this cookie is created in vote.php upon voting
@@ -35,27 +47,31 @@ function txt($string) {
 
     <h1>Let's Settle This!</h1>
 
-    <?php if (!$row): ?>
+    <?php if (!$todayRow): ?>
       <p>There is no question today :(</p>
-    <?php elseif (! $voted): ?>
-      <p><?= txt($row['question']) ?></p>
+    <?php elseif (! $voted):?>
+      <p><?= txt($todayRow['question']) ?></p>
       <form method="post" action="./vote.php">
-        <input type="hidden" name="id" value="<?= $row['id'] ?>">
+        <input type="hidden" name="id" value="<?= $todayRow['id'] ?>">
         <button type="submit" name="answer" value="answer_a">
-          <?= txt($row['answer_a']) ?>
+          <?= txt($todayRow['answer_a']) ?>
         </button>
         <button type="submit" name="answer" value="answer_b">
-          <?= txt($row['answer_b']) ?>
+          <?= txt($todayRow['answer_b']) ?>
         </button>
       </form>
     <?php else: ?>
       <p>Thank you for participating!</p>
-      <p>Current results:</p>
-      <p><?= txt($row['question']) ?></p>
-      <p><?= txt($row['answer_a']) ?>: <?= txt($row['results_a']) ?></p>
-      <p><?= txt($row['answer_b']) ?>: <?= txt($row['results_b']) ?></p>
+      <p>Come back tomorrow for the results!</p>
     <?php endif; ?>
-    
+
+    <?php if ($yesterdayRow): ?>
+      <hr><h3>Yesterday's Results</h3>
+      <p><?= txt($yesterdayRow['question']) ?></p>
+      <p><?= txt($yesterdayRow['answer_a']) ?>: <?= txt($yesterdayRow['results_a']) ?></p>
+      <p><?= txt($yesterdayRow['answer_b']) ?>: <?= txt($yesterdayRow['results_b']) ?></p>
+    <?php endif; ?>
+
     </center>
   </body>
 </html>
