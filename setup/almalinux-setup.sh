@@ -36,10 +36,10 @@ if [[ ! -d "$WEBROOT" ]]; then
         exit 1
         ;;
     esac
-    # SELinux drama, figure out if this is necessary later
-    install -m 0666 /dev/null "$WEBROOT/private/requests.txt"
+    install -m 0664 /dev/null "$WEBROOT/private/requests.txt"
     semanage fcontext -a -t httpd_sys_rw_content_t "$WEBROOT/private/requests.txt"
     restorecon "$WEBROOT/private/requests.txt"
+    chgrp -R apache "$WEBROOT"
   done
 fi
 
