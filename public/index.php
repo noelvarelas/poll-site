@@ -44,6 +44,16 @@ function txt($string) {
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="/" class="active">Home</a><li>
+        <li><a href="/history.php">View Past Questions</a></li>
+        <li><a href="/request.php">Request a Question</a></li>
+        <li><a href="https://github.com/noelvarelas/poll-site">Source Code</a></li>
+      </ul>
+    </nav>
+
     <center>
 
     <h1>Let's Settle This!</h1>
@@ -85,5 +95,6 @@ function txt($string) {
     <?php endif; ?>
 
     </center>
+
   </body>
 </html>

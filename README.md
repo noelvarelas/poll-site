@@ -7,6 +7,7 @@ There is a [setup script](https://github.com/noelvarelas/poll-site/blob/main/set
 
 # Features to work on
 - Separate results page to view all past questions
+- Separate requests page (request functionality already exists)
 
 # Things to fix
 - 
