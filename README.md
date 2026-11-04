@@ -7,7 +7,7 @@ There is a [setup script](https://github.com/noelvarelas/poll-site/blob/main/set
 
 # Features to work on
 - Separate results page to view all past questions
-- Suggestions box that appends one line to a private text file on the server
+- figure out ownership and permissions for site files and setup script
 
 # Things to fix
 - 
