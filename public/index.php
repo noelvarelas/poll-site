@@ -23,11 +23,10 @@ foreach ($rows as $row) {
   }
 }
 
-// check if the user has a cookie for having voted/requested
-// this cookie is created in vote.php/request.php
-// cookie expires at midnight to allow voting/requesting again
+// check if the user has a cookie for having voted
+// this cookie is created in vote.php
+// cookie expires at midnight to allow voting again
 $voted = ($_COOKIE['voted'] ?? '' ) === 'true';
-$requested = ($_COOKIE['requested'] ?? '' ) === 'true';
 
 // helper function to safely put database text into the html
 function txt($string) {
@@ -48,8 +47,8 @@ function txt($string) {
     <nav class="navbar">
       <ul>
         <li><a href="/" class="active">Home</a><li>
-        <li><a href="/history.php">View Past Questions</a></li>
-        <li><a href="/request.php">Request a Question</a></li>
+        <li><a href="./history/index.php">View Past Questions</a></li>
+        <li><a href="./request/index.php">Request a Question</a></li>
         <li><a href="https://github.com/noelvarelas/poll-site">Source Code</a></li>
       </ul>
     </nav>
@@ -81,17 +80,6 @@ function txt($string) {
       <p><?= txt($yesterdayRow['question']) ?></p>
       <p><?= txt($yesterdayRow['answer_a']) ?>: <?= txt($yesterdayRow['results_a']) ?></p>
       <p><?= txt($yesterdayRow['answer_b']) ?>: <?= txt($yesterdayRow['results_b']) ?></p>
-    <?php endif; ?>
-
-    <?php if (! $requested):?>
-      <hr><h3>Request a Question!</h3>
-      <form method="post" action="request.php"
-        <label for="request"></label>Your request:</label>
-        <input type="text" id="request" name="request" maxlength="128" required>
-        <button type="submit">Send</button>
-      </form>
-    <?php else: ?>
-      <hr><p>Thank you for your request!<p>
     <?php endif; ?>
 
     </center>

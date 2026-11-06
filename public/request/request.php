@@ -1,6 +1,6 @@
 <?php
 
-$filepath = __DIR__ . '/../private/requests.txt';
+$filepath = __DIR__ . '/../../private/requests.txt';
 
 // only allow POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

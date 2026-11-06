@@ -8,7 +8,6 @@ There is also an [add question script](https://github.com/noelvarelas/poll-site/
 
 # Features to work on
 - Separate results page to view all past questions
-- Separate requests page (request functionality already exists)
 
 # Things to fix
 - Make site not hideous
