@@ -31,10 +31,18 @@ if (file_put_contents($filepath, $line, FILE_APPEND | LOCK_EX) === false) {
   http_response_code(500);
   exit('Could not save');
 } else {
-// create cookie that expires at midnight
-$tomorrow = new DateTime('tomorrow');
-$expires = $tomorrow->getTimestamp();
-setcookie("requested", "true", $expires, "/");
+
+  // truncate requests.txt if it gets too long
+  $lines = file($filepath);
+  if (count($lines) > 1024) {
+    $recentLines = array_slice($lines, -1024);
+    file_put_contents($filepath, implode('', $recentLines), LOCK_EX);
+  }
+  
+  // create cookie that expires at midnight
+  $tomorrow = new DateTime('tomorrow');
+  $expires = $tomorrow->getTimestamp();
+  setcookie("requested", "true", $expires, "/");
 }
 
 // sends user to home page (refreshes page)

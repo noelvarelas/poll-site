@@ -3,7 +3,7 @@
 require __DIR__ . '/../../private/db.php';
 
 $rows = $pdo->query(
-  "SELECT * FROM questions ORDER BY date DESC LIMIT 100"
+  "SELECT * FROM questions ORDER BY date DESC LIMIT 16"
   )->fetchAll((PDO::FETCH_ASSOC));
 
 function txt($string) {
@@ -34,7 +34,7 @@ function txt($string) {
     <center>
 
     <h1>Past Questions</h1>
-    
+
     <?php foreach ($rows as $row):
       $db_date = $row['date'];
       $date = new DateTime($db_date); ?>
