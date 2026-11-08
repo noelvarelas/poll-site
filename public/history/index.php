@@ -2,6 +2,8 @@
 
 require __DIR__ . '/../../private/db.php';
 
+$today = date('Y-m-d');
+
 $rows = $pdo->query(
   "SELECT * FROM questions ORDER BY date DESC LIMIT 16"
   )->fetchAll((PDO::FETCH_ASSOC));
@@ -36,13 +38,15 @@ function txt($string) {
     <h1>Past Questions</h1>
 
     <?php foreach ($rows as $row):
-      $db_date = $row['date'];
-      $date = new DateTime($db_date); ?>
+      if ($row['date'] === $today) { continue; }
+      $total = $row['results_a'] + $row['results_b'];
+      $percent_a = $total > 0 ? round(($row['results_a'] / $total) * 100) : 0;
+      $percent_b = $total > 0 ? round(($row['results_b'] / $total) * 100) : 0; ?>
       <hr>
-      <p><?= $date->format('F j, Y') ?></p>
+      <p><?= txt($row['date']) ?></p>
       <p><?= txt($row['question']) ?></p>
-      <p><?= txt($row['answer_a']) . " - " . txt($row['results_a']) ?></p>
-      <p><?= txt($row['answer_b']) . " - " . txt($row['results_b']) ?></p>
+      <p><?= txt($row['answer_a']) . " - " . $percent_a . "%" ?></p>
+      <p><?= txt($row['answer_b']) . " - " . $percent_b . "%" ?></p>
     <?php endforeach; ?>
 
     </center>

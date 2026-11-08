@@ -75,11 +75,14 @@ function txt($string) {
       <p>Come back tomorrow for the results!</p>
     <?php endif; ?>
 
-    <?php if ($yesterdayRow): ?>
+    <?php if ($yesterdayRow):
+      $total = $yesterdayRow['results_a'] + $yesterdayRow['results_b'];
+      $percent_a = $total > 0 ? round(($yesterdayRow['results_a'] / $total) * 100) : 0;
+      $percent_b = $total > 0 ? round(($yesterdayRow['results_b'] / $total) * 100) : 0; ?>
       <hr><h3>Yesterday's Results</h3>
       <p><?= txt($yesterdayRow['question']) ?></p>
-      <p><?= txt($yesterdayRow['answer_a']) ?>: <?= txt($yesterdayRow['results_a']) ?></p>
-      <p><?= txt($yesterdayRow['answer_b']) ?>: <?= txt($yesterdayRow['results_b']) ?></p>
+      <p><?= txt($yesterdayRow['answer_a']) . " - " . $percent_a . "%" ?></p>
+      <p><?= txt($yesterdayRow['answer_b']) . " - " . $percent_b . "%" ?></p>
     <?php endif; ?>
 
     </center>
