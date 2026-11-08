@@ -18,6 +18,10 @@ echo; echo "Question: "; read -r inputquestion
 echo; echo "Answer A: "; read -r inputanswera
 echo; echo "Answer B: "; read -r inputanswerb
 
+inputquestion=$(echo "$inputquestion" | sed "s/'/''/g")
+inputanswera=$(echo "$inputanswera" | sed "s/'/''/g")
+inputanswerb=$(echo "$inputanswerb" | sed "s/'/''/g")
+
 mariadb -u root -e \
   "INSERT INTO questions (date, question, answer_a, answer_b) \
   VALUES ('$inputdate', '$inputquestion', '$inputanswera', '$inputanswerb');" \
