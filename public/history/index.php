@@ -5,7 +5,7 @@ require __DIR__ . '/../../private/db.php';
 $today = date('Y-m-d');
 
 $rows = $pdo->query(
-  "SELECT * FROM questions ORDER BY date DESC LIMIT 16"
+  "SELECT * FROM questions WHERE date < '$today' ORDER BY date DESC LIMIT 16"
   )->fetchAll((PDO::FETCH_ASSOC));
 
 function txt($string) {
@@ -38,7 +38,6 @@ function txt($string) {
     <h1>Past Questions</h1>
 
     <?php foreach ($rows as $row):
-      if ($row['date'] === $today) { continue; }
       $total = $row['results_a'] + $row['results_b'];
       $percent_a = $total > 0 ? round(($row['results_a'] / $total) * 100) : 0;
       $percent_b = $total > 0 ? round(($row['results_b'] / $total) * 100) : 0; ?>

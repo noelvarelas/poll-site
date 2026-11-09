@@ -7,6 +7,5 @@ There is a [setup script](https://github.com/noelvarelas/poll-site/blob/main/set
 There is also an [add question script](https://github.com/noelvarelas/poll-site/blob/main/setup/add-question.sh) for convenience during testing.
 
 # To do
-- Migrate to SQLite
 - Migrate server setup script to Alpine/lighttpd/SQLite/PHP
 - Make site not hideous
