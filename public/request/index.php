@@ -19,9 +19,9 @@ $requested = ($_COOKIE['requested'] ?? '' ) === 'true';
 
     <nav class="navbar">
       <ul>
-        <li><a href="/">Home</a><li>
-        <li><a href="../history/index.php">View Past Questions</a></li>
-        <li><a href="index.php" class="active">Request a Question</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="../history/">View Past Questions</a></li>
+        <li><a href="./" class="active">Request a Question</a></li>
         <li><a href="https://github.com/noelvarelas/poll-site">Source Code</a></li>
       </ul>
     </nav>

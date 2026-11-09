@@ -46,9 +46,9 @@ function txt($string) {
 
     <nav class="navbar">
       <ul>
-        <li><a href="/" class="active">Home</a><li>
-        <li><a href="./history/index.php">View Past Questions</a></li>
-        <li><a href="./request/index.php">Request a Question</a></li>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="./history/">View Past Questions</a></li>
+        <li><a href="./request/">Request a Question</a></li>
         <li><a href="https://github.com/noelvarelas/poll-site">Source Code</a></li>
       </ul>
     </nav>
