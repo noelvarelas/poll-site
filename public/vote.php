@@ -27,13 +27,7 @@ if ($answer === 'answer_a') {
 if (($_COOKIE['voted'] ?? '') !== 'true') {
 
   // finally update results for provided question id
-//  $stmt->execute([$id]);
-
-  try {
-    $stmt->execute([$id]);
-} catch (PDOException $e) {
-    die($e->getMessage());
-}
+  $stmt->execute([$id]);
 
   // create cookie that expires at midnight
   $tomorrow = new DateTime('tomorrow');

@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 db_path="/var/www/poll-site/private/database.sqlite"
 
-if [[ $EUID -ne 0 ]]; then
+if [ "$(id -u)" -ne 0 ]; then
   echo "This script must be run as root"
   exit 1
 fi
@@ -15,6 +15,10 @@ sqlite3 -header -column "$db_path" \
   DESC LIMIT 5;"
 
 echo; echo "Date to publish new question in YYYY-MM-DD format: "; read -r inputdate
+if ! echo "$inputdate" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+  echo "Error: date must be in YYYY-MM-DD format"
+  exit 1
+fi
 echo; echo "Question: "; read -r inputquestion
 echo; echo "Answer A: "; read -r inputanswera
 echo; echo "Answer B: "; read -r inputanswerb
@@ -31,5 +35,5 @@ echo; echo "Result:"; echo
 sqlite3 -header -column "$db_path" \
   "SELECT date, question, answer_a, answer_b \
   FROM questions \
-  ORDER BY date \
-  DESC LIMIT 1;"
+  WHERE date = 'inputdate';"
+echo
