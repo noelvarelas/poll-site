@@ -114,5 +114,4 @@ EOL
 fi
 
 echo "Setup complete!"
-echo "Note: this script does not handle your SSH or HTTPS setup."
-echo "Consider requiring SSH keys for login and using Certbot for HTTPS if desired."
+echo "You can now run 'certbot --nginx' to set up an HTTPS site if desired."
