@@ -48,10 +48,10 @@ if [ ! -d "$WEBROOT" ]; then
         exit 1
         ;;
     esac
-    install -m 0664 /dev/null "$WEBROOT/private/requests.txt"
-    chmod 775 "$WEBROOT/private"
-    chgrp -R nginx "$WEBROOT"
   done
+  install -m 0664 /dev/null "$WEBROOT/private/requests.txt"
+  chmod 775 "$WEBROOT/private"
+  chgrp -R nginx "$WEBROOT"
 fi
 
 echo "4/6 Setting up SQLite..."
