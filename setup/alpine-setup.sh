@@ -56,7 +56,7 @@ fi
 
 echo "4/6 Setting up SQLite..."
 if [ ! -f "$WEBROOT/private/database.sqlite" ]; then
-  install -m 0664 -o nginx -g nginx /dev/null "$WEBROOT/private/database.sqlite"
+  install -m 0664 -g nginx /dev/null "$WEBROOT/private/database.sqlite"
   sqlite3 "$WEBROOT/private/database.sqlite" <<EOL
 CREATE TABLE questions (
   id INTEGER PRIMARY KEY,
