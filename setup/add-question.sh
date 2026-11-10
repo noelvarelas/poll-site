@@ -35,5 +35,5 @@ echo; echo "Result:"; echo
 sqlite3 -header -column "$db_path" \
   "SELECT date, question, answer_a, answer_b \
   FROM questions \
-  WHERE date = 'inputdate';"
+  WHERE date = '$inputdate';"
 echo
