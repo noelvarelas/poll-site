@@ -46,14 +46,14 @@ function txt($string) {
 
     <nav class="navbar">
       <ul>
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="./history/">View Past Questions</a></li>
-        <li><a href="./request/">Request a Question</a></li>
+        <li><a href="/" class="active">Home Page</a></li>
+        <li><a href="./history/">Past Questions</a></li>
+        <li><a href="./request/">Request Question</a></li>
         <li><a href="https://github.com/noelvarelas/poll-site">Source Code</a></li>
       </ul>
     </nav><br>
 
-    <center>
+    <div class="main-content">
 
     <?php if (!$todayRow): ?>
       <p>There is no question today :(</p>
@@ -84,7 +84,7 @@ function txt($string) {
       <p><?= txt($percent_b . "%" . " - " . $yesterdayRow['answer_b']) ?></p>
     <?php endif; ?>
 
-    </center>
+    </div>
 
   </body>
 </html>

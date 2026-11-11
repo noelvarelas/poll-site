@@ -26,15 +26,15 @@ function txt($string) {
 
     <nav class="navbar">
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="./" class="active">View Past Questions</a></li>
-        <li><a href="../request/">Request a Question</a></li>
+        <li><a href="/">Home Page</a></li>
+        <li><a href="./" class="active">Past Questions</a></li>
+        <li><a href="../request/">Request Question</a></li>
         <li><a href="https://github.com/noelvarelas/poll-site">Source Code</a></li>
       </ul>
     </nav><br>
 
-    <center>
-
+    <div class="main-content">
+    
     <h1>Past Questions</h1>
 
     <?php foreach ($rows as $row):
@@ -48,7 +48,7 @@ function txt($string) {
       <p><?= txt($percent_b . "%" . " - " . $row['answer_b']) ?></p>
     <?php endforeach; ?>
 
-    </center>
+    </div>
 
   </body>
 </html>

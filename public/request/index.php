@@ -19,14 +19,14 @@ $requested = ($_COOKIE['requested'] ?? '' ) === 'true';
 
     <nav class="navbar">
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="../history/">View Past Questions</a></li>
-        <li><a href="./" class="active">Request a Question</a></li>
+        <li><a href="/">Home Page</a></li>
+        <li><a href="../history/">View Questions</a></li>
+        <li><a href="./" class="active">Request Question</a></li>
         <li><a href="https://github.com/noelvarelas/poll-site">Source Code</a></li>
       </ul>
     </nav><br>
 
-    <center>
+    <div class="main-content">
 
     <?php if (! $requested):?>
       <h3>Which question would you like to see settled?</h3>
@@ -41,7 +41,7 @@ $requested = ($_COOKIE['requested'] ?? '' ) === 'true';
       <p>Requests are limited to one per person per day.<p>
     <?php endif; ?>
 
-    </center>
+    <div class="main-content">
 
   </body>
 </html>
