@@ -20,7 +20,7 @@ $requested = ($_COOKIE['requested'] ?? '' ) === 'true';
     <nav class="navbar">
       <ul>
         <li><a href="/">Home Page</a></li>
-        <li><a href="../history/">View Questions</a></li>
+        <li><a href="../history/">Past Questions</a></li>
         <li><a href="./" class="active">Request Question</a></li>
         <li><a href="https://github.com/noelvarelas/poll-site">Source Code</a></li>
       </ul>
@@ -33,7 +33,7 @@ $requested = ($_COOKIE['requested'] ?? '' ) === 'true';
       <form method="post" action="request.php"
         <label for="request"></label>Your request:</label>
         <input type="text" id="request" name="request" maxlength="128" required>
-        <button type="submit" style="padding:0.25rem;">Send</button>
+        <br><button type="submit" style="padding:0.25rem 1rem;">Send</button>
       </form>
     <?php else: ?>
       <h3>Thank you for your request!</h3>

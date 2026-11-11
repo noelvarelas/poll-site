@@ -16,7 +16,6 @@ body {
 
 form {
   display: inline-block;
-  max-width: 100%;
 }
 
 .main-content {
@@ -32,7 +31,7 @@ form {
   justify-content: center;
   display: flex;
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   background: #1f1f1f;
 }
@@ -43,6 +42,7 @@ form {
   color: white;
   text-decoration: none;
   text-align: center;
+  font-size: 0.85rem;
 }
 
 .navbar a:hover,
