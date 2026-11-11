@@ -1,7 +1,6 @@
 #!/bin/sh
 
-REPO_HTTPS="https://github.com/noelvarelas/poll-site.git"
-REPO_SSH="git@github.com:noelvarelas/poll-site.git"
+REPO="https://github.com/noelvarelas/poll-site.git"
 WEBROOT="/var/www/poll-site"
 PHP_V="85"
 
@@ -31,24 +30,7 @@ fi
 
 echo "3/6 Setting up site directory..."
 if [ ! -d "$WEBROOT" ]; then
-  echo "Select GitHub authentication method:"
-  while true; do
-    echo "1) HTTPS"
-    echo "2) SSH"
-    read -r option
-    case $option in
-      1)
-        git clone "$REPO_HTTPS" "$WEBROOT" || exit 1
-        break;;
-      2)
-        git clone "$REPO_SSH" "$WEBROOT" || exit 1
-        break;;
-      *)
-        echo "Invalid entry. Exiting..."
-        exit 1
-        ;;
-    esac
-  done
+  git clone "$REPO" "$WEBROOT" || exit 1
   install -m 0664 /dev/null "$WEBROOT/private/requests.txt"
   chmod 775 "$WEBROOT/private"
   chgrp -R nginx "$WEBROOT"
