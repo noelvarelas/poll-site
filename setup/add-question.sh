@@ -2,11 +2,6 @@
 
 db_path="/var/www/poll-site/private/database.sqlite"
 
-if [ "$(id -u)" -ne 0 ]; then
-  echo "This script must be run as root"
-  exit 1
-fi
-
 echo; echo "Five most recent entries:"; echo
 sqlite3 -header -column "$db_path" \
   "SELECT date, question \
