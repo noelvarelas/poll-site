@@ -1,12 +1,13 @@
 body {
   background-color: #1f1f1f;
-  color: #ffffff;
+  color: white;
   margin-left: auto;
   margin-right: auto;
   max-width: 800px;
   padding-left: 5%;
   padding-right: 5%;
-  font-family: sans-serif;
+  font-family: monospace;
+  font-size: 1rem;
 }
 
 .navbar {
@@ -26,21 +27,45 @@ body {
 .navbar a {
   display: block;
   padding: 0.75rem 1.25rem;
-  color: #ffffff;
+  color: white;
   text-decoration: none;
 }
 
 .navbar a:hover,
 .navbar a:focus-visible {
-  background: #444;
-  color: #ffffff
+  background: #444444;
+  color: white;
 }
 
 .navbar a.active {
-  background: #304080;
-  color: #ffffff;
+  background: darkslategrey;
+  color: white;
 }
 
 .navbar li:not(:first-child) {
-  border-left: 1px solid #ffffff;
+  border-left: 1px solid white;
+  border-color: darkgray;
+}
+
+button {
+  padding: 1rem 1rem;
+  font-family: monospace;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border-color: darkgrey;
+  cursor: pointer;
+  background: #1f1f1f;
+  color: white;
+  transition: transform 0.1s, background 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  margin: 0.5rem;
+}
+
+button:hover {
+  background: darkslategrey;
+  transform: translateY(-2px);
+}
+
+hr {
+  color: darkgray;
 }

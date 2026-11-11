@@ -24,7 +24,7 @@ $requested = ($_COOKIE['requested'] ?? '' ) === 'true';
         <li><a href="./" class="active">Request a Question</a></li>
         <li><a href="https://github.com/noelvarelas/poll-site">Source Code</a></li>
       </ul>
-    </nav>
+    </nav><br>
 
     <center>
 
@@ -33,7 +33,7 @@ $requested = ($_COOKIE['requested'] ?? '' ) === 'true';
       <form method="post" action="request.php"
         <label for="request"></label>Your request:</label>
         <input type="text" id="request" name="request" maxlength="128" required>
-        <button type="submit">Send</button>
+        <button type="submit" style="padding:0.25rem;">Send</button>
       </form>
     <?php else: ?>
       <h3>Thank you for your request!</h3>

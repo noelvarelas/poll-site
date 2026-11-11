@@ -51,16 +51,14 @@ function txt($string) {
         <li><a href="./request/">Request a Question</a></li>
         <li><a href="https://github.com/noelvarelas/poll-site">Source Code</a></li>
       </ul>
-    </nav>
+    </nav><br>
 
     <center>
-
-    <h1>Let's Settle This!</h1>
 
     <?php if (!$todayRow): ?>
       <p>There is no question today :(</p>
     <?php elseif (! $voted):?>
-      <p><?= txt($todayRow['question']) ?></p>
+      <h1><?= txt($todayRow['question']) ?></h1>
       <form method="post" action="./vote.php">
         <input type="hidden" name="id" value="<?= $todayRow['id'] ?>">
         <button type="submit" name="answer" value="answer_a">
@@ -71,6 +69,7 @@ function txt($string) {
         </button>
       </form>
     <?php else: ?>
+      <h1><?= txt($todayRow['question']) ?></h1>
       <p>Thank you for participating!</p>
       <p>Come back tomorrow for the results!</p>
     <?php endif; ?>
@@ -79,10 +78,10 @@ function txt($string) {
       $total = $yesterdayRow['results_a'] + $yesterdayRow['results_b'];
       $percent_a = $total > 0 ? round(($yesterdayRow['results_a'] / $total) * 100) : 0;
       $percent_b = $total > 0 ? round(($yesterdayRow['results_b'] / $total) * 100) : 0; ?>
-      <hr><h3>Yesterday's Results</h3>
+      <br><hr><br><h3>Yesterday's Results</h3>
       <p><?= txt($yesterdayRow['question']) ?></p>
-      <p><?= txt($yesterdayRow['answer_a']) . " - " . $percent_a . "%" ?></p>
-      <p><?= txt($yesterdayRow['answer_b']) . " - " . $percent_b . "%" ?></p>
+      <p><?= txt($percent_a . "%" . " - " . $yesterdayRow['answer_a']) ?></p>
+      <p><?= txt($percent_b . "%" . " - " . $yesterdayRow['answer_b']) ?></p>
     <?php endif; ?>
 
     </center>

@@ -31,7 +31,7 @@ function txt($string) {
         <li><a href="../request/">Request a Question</a></li>
         <li><a href="https://github.com/noelvarelas/poll-site">Source Code</a></li>
       </ul>
-    </nav>
+    </nav><br>
 
     <center>
 
@@ -44,8 +44,8 @@ function txt($string) {
       <hr>
       <p><?= txt($row['date']) ?></p>
       <p><?= txt($row['question']) ?></p>
-      <p><?= txt($row['answer_a']) . " - " . $percent_a . "%" ?></p>
-      <p><?= txt($row['answer_b']) . " - " . $percent_b . "%" ?></p>
+      <p><?= txt($percent_a . "%" . " - " . $row['answer_a']) ?></p>
+      <p><?= txt($percent_b . "%" . " - " . $row['answer_b']) ?></p>
     <?php endforeach; ?>
 
     </center>
