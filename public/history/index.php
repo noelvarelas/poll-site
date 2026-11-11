@@ -37,16 +37,20 @@ function txt($string) {
     
     <h1>Past Questions</h1>
 
-    <?php foreach ($rows as $row):
-      $total = $row['results_a'] + $row['results_b'];
-      $percent_a = $total > 0 ? round(($row['results_a'] / $total) * 100) : 0;
-      $percent_b = $total > 0 ? round(($row['results_b'] / $total) * 100) : 0; ?>
-      <hr>
-      <p><?= txt($row['date']) ?></p>
-      <p><?= txt($row['question']) ?></p>
-      <p><?= txt($percent_a . "%" . " - " . $row['answer_a']) ?></p>
-      <p><?= txt($percent_b . "%" . " - " . $row['answer_b']) ?></p>
-    <?php endforeach; ?>
+    <?php if (empty($rows)): ?>
+      <p>There are no past questions yet!</p>
+    <?php else: ?>
+      <?php foreach ($rows as $row):
+        $total = $row['results_a'] + $row['results_b'];
+        $percent_a = $total > 0 ? round(($row['results_a'] / $total) * 100) : 0;
+        $percent_b = $total > 0 ? round(($row['results_b'] / $total) * 100) : 0; ?>
+        <hr>
+        <p><?= txt($row['date']) ?></p>
+        <p><?= txt($row['question']) ?></p>
+        <p><?= txt($percent_a . "%" . " - " . $row['answer_a']) ?></p>
+        <p><?= txt($percent_b . "%" . " - " . $row['answer_b']) ?></p>
+      <?php endforeach; ?>
+    <?php endif; ?>
 
     </div>
 

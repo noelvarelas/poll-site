@@ -33,7 +33,7 @@ $requested = ($_COOKIE['requested'] ?? '' ) === 'true';
       <form method="post" action="request.php"
         <label for="request"></label>Your request:</label>
         <input type="text" id="request" name="request" maxlength="128" required>
-        <br><button type="submit" style="padding:0.25rem 1rem;">Send</button>
+        <br><button type="submit" style="margin-top: 1rem; padding:0.25rem 1rem;">Send</button>
       </form>
     <?php else: ?>
       <h3>Thank you for your request!</h3>
